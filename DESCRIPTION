@@ -1,0 +1,14 @@
+Package: article12
+Title: Article12 Functions
+Version: 0.0.0.9000
+Authors@R: 
+    person(given = "Graham",
+           family = "French",
+           role = c("aut", "cre"),
+           email = "Graham.French@jncc.gov.uk")
+Description: This package contains commonly used functions and data used for data manipulation within the article 12 data transformation process
+License: OGL
+Encoding: UTF-8
+LazyData: true
+Suggests: 
+    testthat
