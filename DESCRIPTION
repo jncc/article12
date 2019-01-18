@@ -12,3 +12,10 @@ Encoding: UTF-8
 LazyData: true
 Suggests: 
     testthat
+Imports: 
+    tibble,
+    dplyr,
+    stringr,
+    magrittr
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 6.1.1
