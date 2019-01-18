@@ -131,3 +131,32 @@ reverse_yes_no <- function(yes_no_blank) {
     unlist()
   
 }
+
+#' Recode trends
+#' 
+#' This function changes the descriptive trends text to
+#' the abbreviated text used in the reporting tool 
+#'
+#' @param trends character, trends text
+#'
+#' @return character, abbreviated trends text
+#' @export
+#'
+#' @examples
+#' recode_trends("Increasing (+)")
+recode_trends <- function(trends) {
+  
+  tibble::as.tibble(trends) %>% 
+    dplyr::mutate(value = dplyr::case_when
+                  (
+                    stringr::str_detect(stringr::str_to_lower(value), "decreasing") ~ "D",
+                    stringr::str_detect(stringr::str_to_lower(value), "fluctuating") ~ "F",
+                    stringr::str_detect(stringr::str_to_lower(value), "increasing") ~ "I",
+                    stringr::str_detect(stringr::str_to_lower(value), "stable") ~ "S",
+                    stringr::str_detect(stringr::str_to_lower(value), "^uncertain") ~ "U",
+                    stringr::str_detect(stringr::str_to_lower(value), "^unknown") ~ "UNK",
+                    TRUE ~ value
+                  )) %>% 
+    unlist()
+}
+

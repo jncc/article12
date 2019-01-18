@@ -31,3 +31,12 @@ test_that("yes and no are reversed", {
   expect_match(reverse_yes_no("Yes"), "No")
   expect_match(reverse_yes_no("No"), "Yes")
 })
+
+test_that("trends correctly recoded", {
+  expect_match(recode_trends("Decreasing (-)"), "D")
+  expect_match(recode_trends("Fluctuating (F)"), "F")
+  expect_match(recode_trends("Increasing (+)"), "I")
+  expect_match(recode_trends("Stable (0)"), "S")
+  expect_match(recode_trends("Uncertain (U)"), "U")
+  expect_match(recode_trends("Unknown (X)"), "UNK")
+})
