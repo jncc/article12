@@ -160,3 +160,55 @@ recode_trends <- function(trends) {
     unlist()
 }
 
+#' Recode plans
+#'
+#' This function changes the descriptive plans text to
+#' the abbreviated text used in the reporting tool 
+#'
+#' @param plans character, plans text
+#'
+#' @return character, abbreviated plans text
+#' @export
+#'
+#' @examples
+#' recode_plans("Brief Management Statement")
+recode_plans <- function(plans) {
+  
+  tibble::as.tibble(plans) %>% 
+    dplyr::mutate(value = dplyr::case_when
+                  (
+                    stringr::str_to_lower(value) == "brief management statement" ~ "BMS",
+                    stringr::str_to_lower(value) == "management plan" ~ "MP",
+                    stringr::str_to_lower(value) == "no plan" ~ "NA",
+                    stringr::str_to_lower(value) == "species action plan" ~ "SAP",
+                    TRUE ~ value
+                  )) %>% 
+    unlist()
+}
+
+#' Effectiveness of SAPs
+#' 
+#' This function changes the effectiveness SAP text to
+#' the abbreviated text used in the reporting tool 
+#'
+#' @param effectiveness character, effectiveness text
+#'
+#' @return character, abbreviated effectiveness text
+#' @export
+#'
+#' @examples
+#' recode_effectiveness_sap("further deteriorating away from the plan’s aim/objective(s)")
+recode_effectiveness_sap <- function(effectiveness) {
+  
+  tibble::as.tibble(effectiveness) %>% 
+    dplyr::mutate(value = dplyr::case_when
+                  (
+                    stringr::str_detect(stringr::str_to_lower(value), "further deteriorating") ~ "deteriorating",
+                    stringr::str_detect(stringr::str_to_lower(value), "moving towards") ~ "towards",
+                    stringr::str_detect(stringr::str_to_lower(value), "unchanged") ~ "unchanged",
+                    TRUE ~ value
+                  )) %>% 
+    unlist()
+}
+
+

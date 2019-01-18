@@ -40,3 +40,19 @@ test_that("trends correctly recoded", {
   expect_match(recode_trends("Uncertain (U)"), "U")
   expect_match(recode_trends("Unknown (X)"), "UNK")
 })
+
+test_that("plans correctly recoded", {
+  expect_match(recode_plans("Brief Management Statement"), "BMS")
+  expect_match(recode_plans("Management Plan"), "MP")
+  expect_match(recode_plans("No plan"), "NA")
+  expect_match(recode_plans("Species Action Plan"), "SAP")
+})
+
+test_that("effectiveness SAPs correctly recoded", {
+  expect_match(recode_effectiveness_sap("further deteriorating away from the plan’s aim/objective(s)"), "deteriorating")
+  expect_match(recode_effectiveness_sap("moving towards the plan's aim/objective(s)"), "towards")
+  expect_match(recode_effectiveness_sap("unchanged"), "unchanged")
+})
+
+
+
