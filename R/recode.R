@@ -272,7 +272,7 @@ recode_ranking <- function(ranking) {
 #' @export
 #'
 #' @examples
-#' #' recode_ranking("inside the Member State")
+#' #' recode_pressure_threat_locations("inside the Member State")
 recode_pressure_threat_locations <- function(location) {
   
   tibble::as.tibble(location) %>% 
@@ -394,7 +394,32 @@ recode_measures_response <- function(response) {
     unlist()
 }
 
-
+#' Recode reason change
+#'
+#' This function changes the descriptive reason change
+#' text to the abbreviated text used in the reporting tool 
+#'
+#' @param reason character, reason change text
+#'
+#' @return character, abbreviated freason change text
+#' @export
+#'
+#' @examples
+#' recode_reason_change("Improved knowledge/more accurate data")
+recode_reason_change <- function(reason) {
+  
+  tibble::as.tibble(reason) %>% 
+    dplyr::mutate(value = dplyr::case_when
+                  (
+                    stringr::str_detect(stringr::str_to_lower(value), "genuine") ~ "genuine",
+                    stringr::str_detect(stringr::str_to_lower(value), "improved knowledge") ~ "knowledge",
+                    stringr::str_detect(stringr::str_to_lower(value), "different method") ~ "method",
+                    stringr::str_detect(stringr::str_to_lower(value), "^no change") ~ "nochange",
+                    stringr::str_detect(stringr::str_to_lower(value), "^no information") ~ "noinfo",
+                    TRUE ~ value
+                  )) %>% 
+    unlist()
+}
 
 
 

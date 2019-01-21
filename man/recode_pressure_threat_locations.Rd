@@ -18,5 +18,5 @@ to the abbreviated text used in the reporting tool.
 Includes both the numeric and text location options
 }
 \examples{
-#' recode_ranking("inside the Member State")
+#' recode_pressure_threat_locations("inside the Member State")
 }
