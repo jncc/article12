@@ -54,5 +54,30 @@ test_that("effectiveness SAPs correctly recoded", {
   expect_match(recode_effectiveness_sap("unchanged"), "unchanged")
 })
 
+test_that("effectiveness MPs correctly recoded", {
+  expect_match(recode_effectiveness_mp("further deteriorating"), "deteriorating")
+  expect_match(recode_effectiveness_mp("improving"), "improving")
+  expect_match(recode_effectiveness_mp("unchanged"), "unchanged")
+})
+
+test_that("effectiveness MPs correctly recoded", {
+  expect_match(recode_ranking("high importance"), "H")
+  expect_match(recode_ranking("medium importance"), "M")
+})
+
+test_that("pressure and threat locations correctly recoded", {
+  expect_match(recode_pressure_threat_locations("4"), "inMS")
+  expect_match(recode_pressure_threat_locations("inside the Member State"), "inMS")
+  expect_match(recode_pressure_threat_locations("3"), "elseEU")
+  expect_match(recode_pressure_threat_locations("elsewhere in the EU"), "elseEU")
+  expect_match(recode_pressure_threat_locations("2"), "outEU")
+  expect_match(recode_pressure_threat_locations("outside EU"), "outEU")
+  expect_match(recode_pressure_threat_locations("1"), "inOutEU")
+  expect_match(recode_pressure_threat_locations("both inside and outside EU"), "inOutEU")
+  expect_match(recode_pressure_threat_locations("x"), "Unk")
+  expect_match(recode_pressure_threat_locations("unknown"), "Unk")
+
+})
+
 
 

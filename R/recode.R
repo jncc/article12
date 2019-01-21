@@ -186,7 +186,7 @@ recode_plans <- function(plans) {
     unlist()
 }
 
-#' Effectiveness of SAPs
+#' Effectiveness of SAPs for globally threatened species
 #' 
 #' This function changes the effectiveness SAP text to
 #' the abbreviated text used in the reporting tool 
@@ -211,4 +211,85 @@ recode_effectiveness_sap <- function(effectiveness) {
     unlist()
 }
 
+#' Effectiveness of management plans for huntable species in non-Secure status
+#' 
+#' This function changes the effectiveness SAP text to
+#' the abbreviated text used in the reporting tool 
+#'
+#' @param effectiveness character, effectiveness text
+#'
+#' @return character, abbreviated effectiveness text
+#' @export
+#'
+#' @examples
+#' recode_effectiveness_mp("further deteriorating") 
+recode_effectiveness_mp <- function(effectiveness) {
+  
+  tibble::as.tibble(effectiveness) %>% 
+    dplyr::mutate(value = dplyr::case_when
+                  (
+                    stringr::str_to_lower(value) == "further deteriorating" ~ "deteriorating",
+                    stringr::str_to_lower(value) == "improving" ~ "improving",
+                    stringr::str_to_lower(value) == "unchanged" ~ "unchanged",
+                    TRUE ~ value
+                  )) %>% 
+    unlist()
+}
+
+#' Recode ranking
+#'
+#' This function changes the descriptive ranking text
+#' to the abbreviated text used in the reporting tool 
+#'
+#' @param ranking character, ranking text
+#'
+#' @return character, abbreviated ranking text
+#' @export
+#'
+#' @examples
+#' recode_ranking("high importance")
+recode_ranking <- function(ranking) {
+  
+  tibble::as.tibble(ranking) %>% 
+    dplyr::mutate(value = dplyr::case_when
+                  ( 
+                    stringr::str_to_lower(value) == "high importance" ~ "H",
+                    stringr::str_to_lower(value) == "medium importance" ~ "M",
+                    TRUE ~ value
+                  )) %>% 
+    unlist()
+}
+
+#' Recode pressure and threat locations
+#'
+#' This function changes the descriptive location text
+#' to the abbreviated text used in the reporting tool.
+#' Includes both the numeric and text location options
+#'
+#' @param location character, location text
+#'
+#' @return character, abbreviated location text
+#' @export
+#'
+#' @examples
+#' #' recode_ranking("inside the Member State")
+recode_pressure_threat_locations <- function(location) {
+  
+  tibble::as.tibble(location) %>% 
+    dplyr::mutate(value = dplyr::case_when
+                  ( 
+                    stringr::str_to_lower(value) == "4" ~ "inMS",
+                    stringr::str_to_lower(value) == "inside the member state" ~ "inMS",
+                    stringr::str_to_lower(value) == "3" ~ "elseEU",
+                    stringr::str_to_lower(value) == "elsewhere in the eu" ~ "elseEU",
+                    stringr::str_to_lower(value) == "2" ~ "outEU",
+                    stringr::str_to_lower(value) == "outside eu" ~ "outEU",
+                    stringr::str_to_lower(value) == "1" ~ "inOutEU",
+                    stringr::str_to_lower(value) == "both inside and outside eu" ~ "inOutEU",
+                    stringr::str_to_lower(value) == "x" ~ "Unk",
+                    stringr::str_to_lower(value) == "unknown" ~ "Unk",
+                    TRUE ~ value
+                  )) %>% 
+    unlist()
+}
 
