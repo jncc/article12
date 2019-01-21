@@ -293,3 +293,109 @@ recode_pressure_threat_locations <- function(location) {
     unlist()
 }
 
+#' Recode measures identified
+#' 
+#' This function changes the descriptive measures identified text
+#' to the abbreviated text used in the reporting tool 
+#'
+#' @param measure character, measures identified text
+#'
+#' @return character, measures identified abbreviated text
+#' @export
+#'
+#' @examples
+#' recode_measures_identified("Measures needed but cannot be identified")
+recode_measures_identified <- function(measure) {
+  
+  tibble::as.tibble(measure) %>% 
+    dplyr::mutate(value = dplyr::case_when
+                  (
+                    stringr::str_detect(stringr::str_to_lower(value), "none yet taken") ~ "ident",
+                    stringr::str_detect(stringr::str_to_lower(value), "cannot be identified") ~ "notident",
+                    stringr::str_detect(stringr::str_to_lower(value), "identified and taken") ~ "taken",
+                    TRUE ~ value
+                  )) %>% 
+    unlist()
+}
+
+#' Recode species measures purpose
+#' 
+#' This function changes the descriptive measures purpose text
+#' for species to the abbreviated text used in the reporting tool 
+#'
+#' @param purpose character, measures purpose text 
+#'
+#' @return character, measures purpose abbreviated text 
+#' @export
+#'
+#' @examples
+#' recode_measures_purpose_species("Maintain the current distribution, population and/or habitat for the species")
+recode_measures_purpose <- function(purpose) {
+  
+  tibble::as.tibble(purpose) %>% 
+    dplyr::mutate(value = dplyr::case_when
+                  (
+                    stringr::str_detect(stringr::str_to_lower(value), "^expand") ~ "expand",
+                    stringr::str_detect(stringr::str_to_lower(value), "^increase") ~ "increase",
+                    stringr::str_detect(stringr::str_to_lower(value), "^maintain") ~ "maintain",
+                    stringr::str_detect(stringr::str_to_lower(value), "^restore") ~ "restore",
+                    TRUE ~ value
+                  )) %>% 
+    unlist()
+}
+
+#' Recode measures location
+#' 
+#' This function changes the descriptive measures location text
+#' to the abbreviated text used in the reporting tool 
+#'
+#' @param location character, measures location text
+#'
+#' @return character, measures location abbreviation text
+#' @export
+#'
+#' @examples
+#' recode_measures_location("Both inside and outside Natura 2000")
+recode_measures_location <- function(location) {
+  
+  tibble::as.tibble(location) %>% 
+    dplyr::mutate(value = dplyr::case_when
+                  (
+                    stringr::str_detect(stringr::str_to_lower(value), "^only inside") ~ "in",
+                    stringr::str_detect(stringr::str_to_lower(value), "^both") ~ "inOut",
+                    stringr::str_detect(stringr::str_to_lower(value), "^only outside") ~ "out",
+                    TRUE ~ value
+                  )) %>% 
+    unlist()
+}
+
+#' Recode measures response
+#' 
+#' This function changes the descriptive measures response text
+#' to the abbreviated text used in the reporting tool 
+#'
+#' @param response character, measures response text
+#'
+#' @return character, measures response abbreviated text
+#' @export
+#'
+#' @examples
+#' recode_measures_response("Medium-term results (within the next two reporting periods, 2019-2030)")
+recode_measures_response <- function(response) {
+  
+  tibble::as.tibble(response) %>% 
+    dplyr::mutate(value = dplyr::case_when
+                  (
+                    stringr::str_detect(stringr::str_to_lower(value), "^long-term") ~ "lonTerm",
+                    stringr::str_detect(stringr::str_to_lower(value), "^medium-term") ~ "medTerm",
+                    stringr::str_detect(stringr::str_to_lower(value), "^short-term") ~ "srtTerm",
+                    TRUE ~ value
+                  )) %>% 
+    unlist()
+}
+
+
+
+
+
+

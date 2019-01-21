@@ -79,5 +79,30 @@ test_that("pressure and threat locations correctly recoded", {
 
 })
 
+test_that("measures identified correctly recoded", {
+  expect_match(recode_measures_identified("Measures identified, but none yet taken"), "ident")
+  expect_match(recode_measures_identified("Measures needed but cannot be identified"), "notident")
+  expect_match(recode_measures_identified("Measures identified and taken"), "taken")
+})
+
+test_that("measures purpose correctly recoded", {
+  expect_match(recode_measures_purpose("Expand the current distribution of the species"), "expand")
+  expect_match(recode_measures_purpose("Increase the population size and/or improve population dynamics (improve reproduction success, reduce mortality, improve age/sex structure)"), "increase")
+  expect_match(recode_measures_purpose("Maintain the current distribution, population and/or habitat for the species"), "maintain")
+  expect_match(recode_measures_purpose("Restore the habitat of the species"), "restore")
+})
+
+test_that("measures location correctly recoded", {
+  expect_match(recode_measures_location("Only inside Natura 2000"), "in")
+  expect_match(recode_measures_location("Both inside and outside Natura 2000"), "inOut")
+  expect_match(recode_measures_location("Only outside Natura 2000"), "out")
+})
+
+test_that("measures response correctly recoded", {
+  expect_match(recode_measures_response("Long-term results (after 2030)"), "lonTerm")
+  expect_match(recode_measures_response("Medium-term results (within the next two reporting periods, 2019-2030)"), "medTerm")
+  expect_match(recode_measures_response("Short-term results (within the current reporting period, 2013-2018)"), "srtTerm")
+})
+
 
 
