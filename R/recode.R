@@ -414,8 +414,6 @@ recode_reason_change <- function(reason) {
                     stringr::str_detect(stringr::str_to_lower(value), "genuine") ~ "genuine",
                     stringr::str_detect(stringr::str_to_lower(value), "improved knowledge") ~ "knowledge",
                     stringr::str_detect(stringr::str_to_lower(value), "different method") ~ "method",
-                    stringr::str_detect(stringr::str_to_lower(value), "^no change") ~ "nochange",
-                    stringr::str_detect(stringr::str_to_lower(value), "^no information") ~ "noinfo",
                     TRUE ~ value
                   )) %>% 
     unlist()

@@ -108,8 +108,6 @@ test_that("reason change correctly recoded", {
   expect_match(recode_reason_change("Genuine change"), "genuine")
   expect_match(recode_reason_change("Improved knowledge/more accurate data"), "knowledge")
   expect_match(recode_reason_change("Use of different method"), "method")
-  expect_match(recode_reason_change("No change"), "nochange")
-  expect_match(recode_reason_change("No information on the nature of change"), "noinfo")
 })
 
 
