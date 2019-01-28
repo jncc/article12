@@ -90,9 +90,13 @@ test_that("measures identified correctly recoded", {
 
 test_that("measures purpose correctly recoded", {
   expect_match(recode_measures_purpose("Expand the current distribution of the species"), "expand")
+  expect_match(recode_measures_purpose("measures_purpose_expand"), "expand")
   expect_match(recode_measures_purpose("Increase the population size and/or improve population dynamics (improve reproduction success, reduce mortality, improve age/sex structure)"), "increase")
+  expect_match(recode_measures_purpose("measures_purpose_increase"), "increase")
   expect_match(recode_measures_purpose("Maintain the current distribution, population and/or habitat for the species"), "maintain")
+  expect_match(recode_measures_purpose("measures_purpose_maintain"), "maintain")
   expect_match(recode_measures_purpose("Restore the habitat of the species"), "restore")
+  expect_match(recode_measures_purpose("measures_purpose_restore"), "restore")
 })
 
 test_that("measures location correctly recoded", {

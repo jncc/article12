@@ -339,9 +339,13 @@ recode_measures_purpose <- function(purpose) {
     dplyr::mutate(value = dplyr::case_when
                   (
                     stringr::str_detect(stringr::str_to_lower(value), "^expand") ~ "expand",
+                    stringr::str_to_lower(value) == "measures_purpose_expand" ~ "expand",
                     stringr::str_detect(stringr::str_to_lower(value), "^increase") ~ "increase",
+                    stringr::str_to_lower(value) == "measures_purpose_increase" ~ "increase",
                     stringr::str_detect(stringr::str_to_lower(value), "^maintain") ~ "maintain",
+                    stringr::str_to_lower(value) == "measures_purpose_maintain" ~ "maintain",
                     stringr::str_detect(stringr::str_to_lower(value), "^restore") ~ "restore",
+                    stringr::str_to_lower(value) == "measures_purpose_restore" ~ "restore",
                     TRUE ~ value
                   )) %>% 
     unlist()
