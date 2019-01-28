@@ -311,8 +311,11 @@ recode_measures_identified <- function(measure) {
     dplyr::mutate(value = dplyr::case_when
                   (
                     stringr::str_detect(stringr::str_to_lower(value), "none yet taken") ~ "ident",
+                    stringr::str_to_lower(value) == "measures_status_ident" ~ "ident",
                     stringr::str_detect(stringr::str_to_lower(value), "cannot be identified") ~ "notident",
+                    stringr::str_to_lower(value) == "measures_status_notident" ~ "notident",
                     stringr::str_detect(stringr::str_to_lower(value), "identified and taken") ~ "taken",
+                    stringr::str_to_lower(value) == "measures_status_taken" ~ "taken",
                     TRUE ~ value
                   )) %>% 
     unlist()

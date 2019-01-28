@@ -81,8 +81,11 @@ test_that("pressure and threat locations correctly recoded", {
 
 test_that("measures identified correctly recoded", {
   expect_match(recode_measures_identified("Measures identified, but none yet taken"), "ident")
+  expect_match(recode_measures_identified("measures_status_ident"), "ident")
   expect_match(recode_measures_identified("Measures needed but cannot be identified"), "notident")
+  expect_match(recode_measures_identified("measures_status_notident"), "notident")
   expect_match(recode_measures_identified("Measures identified and taken"), "taken")
+  expect_match(recode_measures_identified("measures_status_taken"), "taken")
 })
 
 test_that("measures purpose correctly recoded", {
