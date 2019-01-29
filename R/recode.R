@@ -397,8 +397,11 @@ recode_measures_response <- function(response) {
     dplyr::mutate(value = dplyr::case_when
                   (
                     stringr::str_detect(stringr::str_to_lower(value), "^long-term") ~ "lonTerm",
+                    stringr::str_to_lower(value) == "measures_response_long" ~ "lonTerm",
                     stringr::str_detect(stringr::str_to_lower(value), "^medium-term") ~ "medTerm",
+                    stringr::str_to_lower(value) == "measures_response_medium" ~ "medTerm",
                     stringr::str_detect(stringr::str_to_lower(value), "^short-term") ~ "srtTerm",
+                    stringr::str_to_lower(value) == "measures_response_short" ~ "srtTerm",
                     TRUE ~ value
                   )) %>% 
     unlist()

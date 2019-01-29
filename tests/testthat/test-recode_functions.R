@@ -110,8 +110,11 @@ test_that("measures location correctly recoded", {
 
 test_that("measures response correctly recoded", {
   expect_match(recode_measures_response("Long-term results (after 2030)"), "lonTerm")
+  expect_match(recode_measures_response("measures_response_long"), "lonTerm")
   expect_match(recode_measures_response("Medium-term results (within the next two reporting periods, 2019-2030)"), "medTerm")
+  expect_match(recode_measures_response("measures_response_medium"), "medTerm")
   expect_match(recode_measures_response("Short-term results (within the current reporting period, 2013-2018)"), "srtTerm")
+  expect_match(recode_measures_response("measures_response_short"), "srtTerm")
 })
 
 test_that("reason change correctly recoded", {
