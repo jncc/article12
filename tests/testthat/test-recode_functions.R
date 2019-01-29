@@ -101,8 +101,11 @@ test_that("measures purpose correctly recoded", {
 
 test_that("measures location correctly recoded", {
   expect_match(recode_measures_location("Only inside Natura 2000"), "in")
+  expect_match(recode_measures_location("measures_location_in"), "in")
   expect_match(recode_measures_location("Both inside and outside Natura 2000"), "inOut")
+  expect_match(recode_measures_location("measures_location_inout"), "inOut")
   expect_match(recode_measures_location("Only outside Natura 2000"), "out")
+  expect_match(recode_measures_location("measures_location_out"), "out")
 })
 
 test_that("measures response correctly recoded", {

@@ -369,8 +369,11 @@ recode_measures_location <- function(location) {
     dplyr::mutate(value = dplyr::case_when
                   (
                     stringr::str_detect(stringr::str_to_lower(value), "^only inside") ~ "in",
+                    stringr::str_to_lower(value) == "measures_location_in" ~ "in",
                     stringr::str_detect(stringr::str_to_lower(value), "^both") ~ "inOut",
+                    stringr::str_to_lower(value) == "measures_location_inout" ~ "inOut",
                     stringr::str_detect(stringr::str_to_lower(value), "^only outside") ~ "out",
+                    stringr::str_to_lower(value) == "measures_location_out" ~ "out",
                     TRUE ~ value
                   )) %>% 
     unlist()
