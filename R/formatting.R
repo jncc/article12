@@ -84,8 +84,9 @@ format_text <- function(text) {
                   value = stringr::str_replace_all(value, "\\\\u", ""))
   
   # Handle less than or equal sign
-  text_formatting <- text_formatting %>%
-    dplyr::mutate(value = stringr::str_replace_all(value, '≤', '<=')) # less than or equal
+  # 2019-02-06 DO NOT USE commented out as R also converts = to <=
+  # text_formatting <- text_formatting %>%
+  #  dplyr::mutate(value = stringr::str_replace_all(value, '≤', '<=')) # less than or equal
   
   # Handle miscellaneous characters
   text_formatting <- text_formatting %>%

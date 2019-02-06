@@ -332,7 +332,7 @@ recode_measures_identified <- function(measure) {
 #' @export
 #'
 #' @examples
-#' recode_measures_purpose_species("Maintain the current distribution, population and/or habitat for the species")
+#' recode_measures_purpose("Maintain the current distribution, population and/or habitat for the species")
 recode_measures_purpose <- function(purpose) {
   
   tibble::as.tibble(purpose) %>% 

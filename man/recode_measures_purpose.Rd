@@ -17,5 +17,5 @@ This function changes the descriptive measures purpose text
 for species to the abbreviated text used in the reporting tool
 }
 \examples{
-recode_measures_purpose_species("Maintain the current distribution, population and/or habitat for the species")
+recode_measures_purpose("Maintain the current distribution, population and/or habitat for the species")
 }
