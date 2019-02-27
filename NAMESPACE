@@ -3,6 +3,7 @@
 export("%>%")
 export(create_reporting_tool_environment)
 export(format_date)
+export(format_date_period)
 export(format_text)
 export(recode_effectiveness_mp)
 export(recode_effectiveness_sap)
