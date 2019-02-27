@@ -21,28 +21,6 @@ format_date <- function(date) {
     unlist()
 }
 
-#' Format date period
-#' 
-#' This function concatenates the start and end dates
-#' into required yyyy- or yyyy-yyyy date period formats
-#'
-#' @param start_date 4 digit integer, start date
-#' @param end_date 4 digit integer, end date
-#'
-#' @return character, yyyy- or yyyy-yyyy date period format
-#' @export
-#'
-#' @examples
-#' format_date_period(2013, 2018)
-format_date_period <- function(start_date, end_date) {
-  
-  if (start_date == end_date) {
-    date_period <- stringr::str_glue("{start_date}-")
-  } else {
-    date_period <- stringr::str_glue("{start_date}-{end_date}")
-  }
-}
-
 #' Format text
 #'
 #' This function formats free text handling NA characters, end of line
