@@ -12,7 +12,7 @@ format_date_period(start_date, end_date)
 \item{end_date}{4 digit integer, end date}
 }
 \value{
-character, yyyy- or yyyy-yyyy format
+character, yyyy- or yyyy-yyyy date period format
 }
 \description{
 This function concatenates the start and end dates

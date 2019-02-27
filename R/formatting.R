@@ -29,7 +29,7 @@ format_date <- function(date) {
 #' @param start_date 4 digit integer, start date
 #' @param end_date 4 digit integer, end date
 #'
-#' @return character, yyyy- or yyyy-yyyy format
+#' @return character, yyyy- or yyyy-yyyy date period format
 #' @export
 #'
 #' @examples
