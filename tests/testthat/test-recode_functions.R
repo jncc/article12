@@ -10,6 +10,7 @@ test_that("population units correctly recoded", {
   expect_match(recode_population_units("number of breeding females"), "bfemales")
   expect_match(recode_population_units("number of calling males"), "cmales")
   expect_match(recode_population_units("calling males"), "cmales")
+  expect_match(recode_population_units("males"), "males")
   expect_match(recode_population_units("number of individuals"), "i")
   expect_match(recode_population_units("individuals"), "i")
   expect_match(recode_population_units("number of males"), "males")

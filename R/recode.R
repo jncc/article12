@@ -44,6 +44,7 @@ recode_population_units <- function(population_unit) {
                     stringr::str_detect(stringr::str_to_lower(value), "calling males")  ~  "cmales",
                     stringr::str_detect(stringr::str_to_lower(value), "individuals")  ~  "i",
                     stringr::str_to_lower(value) ==  "number of males"  ~  "males",
+                    stringr::str_detect(stringr::str_to_lower(value), "^males")  ~  "males",
                     stringr::str_detect(stringr::str_to_lower(value), "pairs")  ~  "p",
                     TRUE ~ value
                   )) %>% 
