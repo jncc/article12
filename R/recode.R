@@ -229,9 +229,9 @@ recode_effectiveness_mp <- function(effectiveness) {
   tibble::as.tibble(effectiveness) %>% 
     dplyr::mutate(value = dplyr::case_when
                   (
-                    stringr::str_to_lower(value) == "further deteriorating" ~ "deteriorating",
-                    stringr::str_to_lower(value) == "improving" ~ "improving",
-                    stringr::str_to_lower(value) == "unchanged" ~ "unchanged",
+                    stringr::str_detect(stringr::str_to_lower(value), "further deteriorating") ~ "deteriorating",
+                    stringr::str_detect(stringr::str_to_lower(value), "improving") ~ "improving",
+                    stringr::str_detect(stringr::str_to_lower(value), "unchanged") ~ "unchanged",
                     TRUE ~ value
                   )) %>% 
     unlist()

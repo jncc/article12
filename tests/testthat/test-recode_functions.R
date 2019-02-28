@@ -51,14 +51,19 @@ test_that("plans correctly recoded", {
 
 test_that("effectiveness SAPs correctly recoded", {
   expect_match(recode_effectiveness_sap("further deteriorating away from the plan’s aim/objective(s)"), "deteriorating")
+  expect_match(recode_effectiveness_sap("c) Further deteriorating away from the plan’s aim/objective"), "deteriorating")
   expect_match(recode_effectiveness_sap("moving towards the plan's aim/objective(s)"), "towards")
+  expect_match(recode_effectiveness_sap("a) Moving towards the plan’s aim/objective"), "towards")
   expect_match(recode_effectiveness_sap("unchanged"), "unchanged")
+  expect_match(recode_effectiveness_sap("b) Unchanged"), "unchanged")
 })
 
 test_that("effectiveness MPs correctly recoded", {
   expect_match(recode_effectiveness_mp("further deteriorating"), "deteriorating")
+  expect_match(recode_effectiveness_mp("c) Further deteriorating"), "deteriorating")
   expect_match(recode_effectiveness_mp("improving"), "improving")
   expect_match(recode_effectiveness_mp("unchanged"), "unchanged")
+  expect_match(recode_effectiveness_mp("b) Unchanged"), "unchanged")
 })
 
 test_that("effectiveness MPs correctly recoded", {
