@@ -26,10 +26,15 @@ test_that("type of estimate correctly recoded", {
 
 test_that("methods used correctly recoded", {
   expect_match(recode_methods_used("Insufficient or no data available"), "absentData")
+  expect_match(recode_methods_used("d) insufficient or no data available"), "absentData")
   expect_match(recode_methods_used("Insufficent or no data available"), "absentData")
+  expect_match(recode_methods_used("d) insufficent or no data available"), "absentData")
   expect_match(recode_methods_used("Complete survey or a statistically robust estimate"), "completeSurvey")
+  expect_match(recode_methods_used("a) complete survey or a statistically robust estimate"), "completeSurvey")
   expect_match(recode_methods_used("Based mainly on expert opinion with very limited data"), "estimateExpert")
+  expect_match(recode_methods_used("c) based mainly on expert opinion with very limited data"), "estimateExpert")
   expect_match(recode_methods_used("Based mainly on extrapolation from a limited amount of data"), "estimatePartial")
+  expect_match(recode_methods_used("b) based mainly on extrapolation from a limited amount of data"), "estimatePartial")
 })
 
 test_that("yes and no are reversed", {
