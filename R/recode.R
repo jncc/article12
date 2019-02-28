@@ -41,10 +41,10 @@ recode_population_units <- function(population_unit) {
     dplyr::mutate(value = dplyr::case_when
                   (
                     stringr::str_to_lower(value) ==  "number of breeding females"  ~  "bfemales",
-                    stringr::str_to_lower(value) ==  "number of calling males"  ~  "cmales",
-                    stringr::str_to_lower(value) ==  "number of individuals"  ~  "i",
+                    stringr::str_detect(stringr::str_to_lower(value), "calling males")  ~  "cmales",
+                    stringr::str_detect(stringr::str_to_lower(value), "individuals")  ~  "i",
                     stringr::str_to_lower(value) ==  "number of males"  ~  "males",
-                    stringr::str_to_lower(value) ==  "number of pairs"  ~  "p",
+                    stringr::str_detect(stringr::str_to_lower(value), "pairs")  ~  "p",
                     TRUE ~ value
                   )) %>% 
     unlist()

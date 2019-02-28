@@ -9,9 +9,12 @@ test_that("season correctly recoded", {
 test_that("population units correctly recoded", {
   expect_match(recode_population_units("number of breeding females"), "bfemales")
   expect_match(recode_population_units("number of calling males"), "cmales")
+  expect_match(recode_population_units("calling males"), "cmales")
   expect_match(recode_population_units("number of individuals"), "i")
+  expect_match(recode_population_units("individuals"), "i")
   expect_match(recode_population_units("number of males"), "males")
-  expect_match(recode_population_units("number of pairs"), "p")})
+  expect_match(recode_population_units("number of pairs"), "p")
+  expect_match(recode_population_units("pairs"), "p")})
 
 test_that("type of estimate correctly recoded", {
   expect_match(recode_type_of_estimate("Best estimate"), "estimate")
