@@ -152,11 +152,15 @@ recode_trends <- function(trends) {
     dplyr::mutate(value = dplyr::case_when
                   (
                     stringr::str_detect(stringr::str_to_lower(value), "decreasing") ~ "D",
+                    stringr::str_to_lower(value) == '-' ~ "D",
                     stringr::str_detect(stringr::str_to_lower(value), "fluctuating") ~ "F",
                     stringr::str_detect(stringr::str_to_lower(value), "increasing") ~ "I",
+                    stringr::str_to_lower(value) == '+' ~ "I",
                     stringr::str_detect(stringr::str_to_lower(value), "stable") ~ "S",
+                    stringr::str_to_lower(value) == '0' ~ "S",
                     stringr::str_detect(stringr::str_to_lower(value), "^uncertain") ~ "U",
                     stringr::str_detect(stringr::str_to_lower(value), "^unknown") ~ "UNK",
+                    stringr::str_to_lower(value) == 'x' ~ "UNK",
                     TRUE ~ value
                   )) %>% 
     unlist()
