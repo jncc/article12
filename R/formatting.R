@@ -34,7 +34,7 @@ format_date <- function(date) {
 #'
 #' @examples
 #' format_text("▪ #NAUnformatted%20text list starting with NA")
-#' format_text("ÀáäãčçéÖöØñřŝüū")
+#' format_text("ÀáäãčçéÖöØñřŝüūú")
 format_text <- function(text) {
   
   text_formatting <- tibble::as.tibble(text)
@@ -101,6 +101,7 @@ format_text <- function(text) {
                   value = stringr::str_replace_all(value, "00b4", "'"), # acute accent
                   value = stringr::str_replace_all(value, "00b5", "micro"), # micro
                   value = stringr::str_replace_all(value, "00b8", ","), # cedilla
+                  value = stringr::str_replace_all(value, "00fa", "u"), # ú
                   #value = stringr::str_replace_all(value, "00f6", "o"), # ö
                   #value = stringr::str_replace_all(value, "00d8", "O"), # Ø
                   #value = stringr::str_replace_all(value, "00f1", "n"), # ñ
