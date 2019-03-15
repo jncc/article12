@@ -161,6 +161,7 @@ recode_trends <- function(trends) {
                     stringr::str_detect(stringr::str_to_lower(value), "^uncertain") ~ "U",
                     stringr::str_detect(stringr::str_to_lower(value), "^unknown") ~ "UNK",
                     stringr::str_to_lower(value) == 'x' ~ "UNK",
+                    stringr::str_detect(stringr::str_to_lower(value), "extinct") ~ "", # David Stroud recommendation
                     TRUE ~ value
                   )) %>% 
     unlist()
