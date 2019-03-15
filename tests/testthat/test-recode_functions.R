@@ -52,8 +52,7 @@ test_that("trends correctly recoded", {
   expect_match(recode_trends("0"), "S")
   expect_match(recode_trends("Uncertain (U)"), "U")
   expect_match(recode_trends("Unknown (X)"), "UNK")
-  expect_match(recode_trends("x"), "UNK")
-  expect_match(recode_trends("extinct"), "")
+  expect_equivalent(recode_trends("extinct"), NA_character_)
 })
 
 test_that("plans correctly recoded", {
