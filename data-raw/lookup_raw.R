@@ -7,8 +7,33 @@ information_species_look_up <- readxl::read_excel(dest_file, sheet = "Art12 chec
   dplyr::filter(country == "UK") %>% 
   dplyr::rename(speciescode = species_code,
                 speciesname = species_name) %>% 
-  dplyr::select(speciescode:recommended_unit) %>% 
+  dplyr::mutate(season = dplyr::case_when 
+                (
+                  stringr::str_to_lower(season) == "b" ~ "breeding",
+                  stringr::str_to_lower(season) == "w" ~ "winter",
+                  stringr::str_to_lower(season) == "p" ~ "passage",
+                  TRUE ~ season
+                )) %>%
+  dplyr::mutate(occurrence = dplyr::case_when 
+                (
+                  stringr::str_to_lower(occurrence) == "pre" ~ "present",
+                  stringr::str_to_lower(occurrence) == "arr" ~ "colonised",
+                  stringr::str_to_lower(occurrence) == "exba" ~ "extinct",
+                  TRUE ~ occurrence
+                )) %>%
+  dplyr::mutate(recommended_unit = dplyr::case_when 
+                (
+                  stringr::str_to_lower(recommended_unit) == "bfemales" ~ "breeding females",
+                  stringr::str_to_lower(recommended_unit) == "cmales" ~ "calling males",
+                  stringr::str_to_lower(recommended_unit) == "i" ~ "individuals",
+                  stringr::str_to_lower(recommended_unit) == "males" ~ "males",  
+                  stringr::str_to_lower(recommended_unit) == "p" ~ "pairs",    
+                  TRUE ~ recommended_unit
+                )) %>% 
+  dplyr::select(speciescode,
+                euringcode,
+                speciesname:season,
+                occurrence,
+                recommended_unit) %>% 
   dplyr::arrange(speciesname, sub_unit)
-
-
 
