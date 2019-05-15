@@ -19,5 +19,5 @@ characters to the most appropriate ASCII character
 }
 \examples{
 format_text("â–ª #NAUnformatted\%20text list starting with NA")
-format_text("Ã€Ã¡Ã¤Ã£ÄÃ§Ã©Ã–Ã¶Ã˜Ã±Å™ÅÃ¼Å«")
+format_text("Ã€Ã¡Ã¤Ã£ÄÃ§Ã©Ã–Ã¶Ã˜Ã±Å™ÅÃ¼Å«ÃºÃ´")
 }

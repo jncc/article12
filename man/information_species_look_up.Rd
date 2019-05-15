@@ -4,18 +4,23 @@
 \name{information_species_look_up}
 \alias{information_species_look_up}
 \title{Species information}
-\format{A tibble with 553 rows and 4 variables
+\format{A tibble with 319 rows and 8 variables
 \describe{
 \item{speciescode}{bird species code}
+\item{euringcode}{European bird ringing schemes species code}
 \item{speciesname}{scientific name}
 \item{sub_unit}{bird sub_unit}
+\item{common_name}{bird common name}
+\item{season}{breeding, winter or passage}
+\item{occurrence}{present or colonised}
+\item{recommended_unit}{recommended population count unit}
 }}
 \usage{
 information_species_look_up
 }
 \description{
 A dataset containing the Article 12 species information, taken from
-the Birds Directive reporting portal. Checklist for bird species last
-updated 2018-07-05
+the Birds Directive reporting portal, limited to that required by UK.
+Checklist for bird species last  updated 2018-07-05
 }
 \keyword{datasets}
