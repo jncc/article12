@@ -4,23 +4,25 @@
 \name{information_common_name_look_up}
 \alias{information_common_name_look_up}
 \title{Common name information}
-\format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 287 rows and 3 columns.}
+\format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 287 rows and 4 columns.}
 \usage{
 information_common_name_look_up
 }
 \description{
 A dataset a look up between the common names found in the
 Article 12 spreadsheets and Article 12 species codes.
-Where the common name refers to more than one
-species code additional information is provided to allow
-selection of correct species code.
+Match is used to indicate common names with a unique species
+code or where there is more than one species code. For these
+common names additional information is provided to allow a
+manual selection of the correct species code.
 }
 \details{
-#' @format A tibble with 287 rows and 3 variables
+#' @format A tibble with 287 rows and 4 variables
 \describe{
 \item{speciescode}{bird species code}
 \item{common_name}{bird common name}
 \item{additional_info}{additional name information}
+\item{match}{unique species code for common name or not}
 }
 }
 \keyword{datasets}

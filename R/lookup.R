@@ -21,14 +21,17 @@
 #' 
 #' A dataset a look up between the common names found in the 
 #' Article 12 spreadsheets and Article 12 species codes. 
-#' Where the common name refers to more than one
-#' species code additional information is provided to allow 
-#' selection of correct species code.
+#' Match is used to indicate common names with a unique species
+#' code or where there is more than one species code. For these 
+#' common names additional information is provided to allow a 
+#' manual selection of the correct species code.
 #' 
-#' #' @format A tibble with 287 rows and 3 variables
+#' 
+#' #' @format A tibble with 287 rows and 4 variables
 #' \describe{
 #'   \item{speciescode}{bird species code}
 #'   \item{common_name}{bird common name}
 #'   \item{additional_info}{additional name information}
+#'   \item{match}{unique species code for common name or not}
 #' }
 "information_common_name_look_up"
