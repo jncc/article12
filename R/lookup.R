@@ -27,7 +27,7 @@
 #' manual selection of the correct species code.
 #' 
 #' 
-#' #' @format A tibble with 288 rows and 4 variables
+#' #' @format A tibble with 310 rows and 4 variables
 #' \describe{
 #'   \item{speciescode}{bird species code}
 #'   \item{common_name}{bird common name}
