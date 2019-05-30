@@ -33,8 +33,7 @@ format_date <- function(date) {
 #' @export
 #'
 #' @examples
-#' format_text("▪ #NAUnformatted%20text list starting with NA")
-#' format_text("ÀáäãčçéÖöØñřŝüūúô")
+#' 
 format_text <- function(text) {
   
   text_formatting <- tibble::as.tibble(text)
