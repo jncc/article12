@@ -340,6 +340,7 @@ information_common_name_look_up <- tibble::tribble(
                                          "A045-A",                             "Barnacle Goose",                                 "East Greenland/Scotland & Ireland",   "no",
                                          "A045-B",                             "Barnacle Goose",                                      "Svalbard/South-west Scotland",   "no",
                                          "A045-X",                             "Barnacle Goose",                                            "non-native populations",   "no",
+                                         "A045-X",                "Barnacle Goose, naturalised",                                                                  NA,  "yes",
                                          "A045-A",                  "Barnacle Goose, Greenland",                                                                  NA,  "yes",
                                          "A045-B",                   "Barnacle Goose, Svalbard",                                                                  NA,  "yes",
                                            "A157",                          "Bar-tailed Godwit",                                                                  NA,  "yes",
@@ -389,7 +390,9 @@ information_common_name_look_up <- tibble::tribble(
                                            "A164",                          "Common Greenshank",                                                                  NA,  "yes",
                                            "A887",                           "Common Guillemot",                                                                  NA,  "yes",
                                            "A887",                     "Common Guillemot aalge",                                                                  NA,  "yes",
+                                           "A887",                    "Common Guillemot, aalge",                                                                  NA,  "yes",
                                            "A887",                  "Common Guillemot albionis",                                                                  NA,  "yes",
+                                           "A887",                 "Common Guillemot, albionis",                                                                  NA,  "yes",
                                            "A182",                                "Common Gull",                                                                  NA,  "yes",
                                            "A096",                             "Common Kestrel",                                                                  NA,  "yes",
                                            "A229",                          "Common Kingfisher",                                                                  NA,  "yes",
@@ -471,6 +474,7 @@ information_common_name_look_up <- tibble::tribble(
                                            "A014",                      "European Storm-petrel",                                                                  NA,  "yes",
                                            "A210",                       "European Turtle-dove",                                                                  NA,  "yes",
                                            "A394",               "European White-fronted Goose",                                                                  NA,  "yes",
+                                         "A748-X",                             "Eygptian Goose",                                                                  NA,  "yes",
                                            "A434",                             "Fair Isle Wren",                                                                  NA,  "yes",
                                            "A284",                                  "Fieldfare",                                                                  NA,  "yes",
                                            "A318",                                  "Firecrest",                                                                  NA,  "yes",
@@ -509,6 +513,7 @@ information_common_name_look_up <- tibble::tribble(
                                            "A043",                              "Greylag Goose",                                                                  NA,  "yes",
                                            "A043",                    "Greylag Goose (Britain)",                                                                  NA,  "yes",
                                            "A043",                    "Greylag Goose (Iceland)",                                                                  NA,  "yes",
+                                           "A043",                     "Greylag Goose, Iceland",                                                                  NA,  "yes",
                                            "A043",                         "Greylag Goose (UK)",                                                                  NA,  "yes",
                                          "A847-X",                              "Harris's Hawk",                                                                  NA,  "yes",
                                            "A373",                                   "Hawfinch",                                                                  NA,  "yes",
@@ -660,6 +665,7 @@ information_common_name_look_up <- tibble::tribble(
                                            "A260",                             "Yellow Wagtail",                                                                  NA,  "yes",
                                            "A376",                               "Yellowhammer",                                                                  NA,  "yes"
                                      )
+
 
 
 
