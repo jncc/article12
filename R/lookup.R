@@ -27,11 +27,13 @@
 #' manual selection of the correct species code.
 #' 
 #' 
-#' #' @format A tibble with 334 rows and 4 variables
+#' #' @format A tibble with 334 rows and 6 variables
 #' \describe{
 #'   \item{speciescode}{bird species code}
 #'   \item{common_name}{bird common name}
 #'   \item{additional_info}{additional name information}
-#'   \item{match}{unique species code for common name or not}
+#'   \item{common_name_match}{unique species code for common name or not}
+#'   \item{scientific_name}{article 12 checklist scientific name}
+#'   \item{sub_unit}{article 12 checklist sub unit}
 #' }
 "information_common_name_look_up"

@@ -4,7 +4,7 @@
 \name{information_common_name_look_up}
 \alias{information_common_name_look_up}
 \title{Common name information}
-\format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 334 rows and 4 columns.}
+\format{An object of class \code{tbl_df} (inherits from \code{tbl}, \code{data.frame}) with 334 rows and 6 columns.}
 \usage{
 information_common_name_look_up
 }
@@ -17,12 +17,14 @@ common names additional information is provided to allow a
 manual selection of the correct species code.
 }
 \details{
-#' @format A tibble with 334 rows and 4 variables
+#' @format A tibble with 334 rows and 6 variables
 \describe{
 \item{speciescode}{bird species code}
 \item{common_name}{bird common name}
 \item{additional_info}{additional name information}
-\item{match}{unique species code for common name or not}
+\item{common_name_match}{unique species code for common name or not}
+\item{scientific_name}{article 12 checklist scientific name}
+\item{sub_unit}{article 12 checklist sub unit}
 }
 }
 \keyword{datasets}
