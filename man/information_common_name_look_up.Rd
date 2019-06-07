@@ -11,10 +11,10 @@ information_common_name_look_up
 \description{
 A dataset a look up between the common names found in the
 Article 12 spreadsheets and Article 12 species codes.
-Match is used to indicate common names with a unique species
-code or where there is more than one species code. For these
-common names additional information is provided to allow a
-manual selection of the correct species code.
+Common_name_match is used to indicate common names with a
+unique species code or where there is more than one species code.
+For these common names additional information is provided to
+allow a manual selection of the correct species code.
 }
 \details{
 #' @format A tibble with 334 rows and 6 variables

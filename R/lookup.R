@@ -21,10 +21,10 @@
 #' 
 #' A dataset a look up between the common names found in the 
 #' Article 12 spreadsheets and Article 12 species codes. 
-#' Match is used to indicate common names with a unique species
-#' code or where there is more than one species code. For these 
-#' common names additional information is provided to allow a 
-#' manual selection of the correct species code.
+#' Common_name_match is used to indicate common names with a 
+#' unique species code or where there is more than one species code. 
+#' For these common names additional information is provided to 
+#' allow a manual selection of the correct species code.
 #' 
 #' 
 #' #' @format A tibble with 334 rows and 6 variables
@@ -37,3 +37,23 @@
 #'   \item{sub_unit}{article 12 checklist sub unit}
 #' }
 "information_common_name_look_up"
+
+#' Scientific name information
+#' 
+#' A dataset a look up between the scientific names found in the 
+#' submitted 2013 species distribution maps shape file and Article 12 
+#' species codes. Scientific_name_match is used to indicate scientific 
+#' names with a unique species code or where there is more than one 
+#' species code.
+#' 
+#' 
+#' #' @format A tibble with 332 rows and 5variables
+#' \describe{
+#'   \item{speciescode}{bird species code}
+#'   \item{scientific_name}{bird scientific name}
+#'   \item{sub_unit}{article 12 checklist sub unit}
+#'   \item{scientific_name_match}{unique species code for scientific name or not}
+#'   \item{common_name}{bird common name}
+#' }
+"information_scientific_name_look_up"
+
