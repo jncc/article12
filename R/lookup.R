@@ -15,7 +15,7 @@
 #'   \item{occurrence}{present or colonised}
 #'   \item{recommended_unit}{recommended population count unit}
 #' }
-"information_species_look_up"
+"information_assessment_look_up"
 
 #' Common name information
 #' 
