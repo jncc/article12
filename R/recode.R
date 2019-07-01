@@ -95,10 +95,14 @@ recode_methods_used <- function(methods_used) {
     dplyr::mutate(value = dplyr::case_when
                   (
                     stringr::str_detect(stringr::str_to_lower(value), "complete survey") ~ "completeSurvey",
+                    stringr::str_to_lower(value) == "a" ~ "completeSurvey",
                     stringr::str_detect(stringr::str_to_lower(value), "extrapolation") ~ "estimatePartial",
+                    stringr::str_to_lower(value) == "b" ~ "estimatePartial",
                     stringr::str_detect(stringr::str_to_lower(value), "based mainly on expert opinion") ~ "estimateExpert",
+                    stringr::str_to_lower(value) == "c" ~ "estimateExpert",
                     stringr::str_detect(stringr::str_to_lower(value), "insufficient or no data") ~ "absentData",
                     stringr::str_detect(stringr::str_to_lower(value), "insufficent or no data") ~ "absentData",
+                    stringr::str_to_lower(value) == "d" ~ "absentData",
                     TRUE ~ value
                   )) %>% 
     unlist()
